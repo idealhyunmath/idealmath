@@ -14,11 +14,31 @@
             border-radius: 10px;
             background-color: #f9f9f9;
         }
+        .notice {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .toggle-button {
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="login-container">
+            <div class="toggle-button" onclick="toggleNotice()">
+                <span>공지사항</span>
+                <span>&#9660;</span>
+            </div>
+            <div class="notice" id="notice">
+                여기에 공지사항 내용을 적으세요.
+            </div>
             <h2 class="text-center">복습 동영상</h2>
             <form id="loginForm">
                 <div class="form-group">
@@ -35,6 +55,15 @@
     </div>
 
     <script>
+        function toggleNotice() {
+            const notice = document.getElementById('notice');
+            if (notice.style.display === 'none' || notice.style.display === '') {
+                notice.style.display = 'block';
+            } else {
+                notice.style.display = 'none';
+            }
+        }
+
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const username = document.getElementById('username').value;
