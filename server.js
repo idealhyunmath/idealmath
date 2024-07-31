@@ -6,7 +6,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // 사용자 정보 목록 (아이디, 비밀번호, 역할)
 const users = {
-    '권도현': { password: 'ehgus1', role: 'A' },
+    'rnjsehgus': { password: 'ehgus1', role: 'A' },
     'user2': { password: 'pass2', role: 'B' },
     'user3': { password: 'pass3', role: 'C' },
     'user4': { password: 'pass4', role: 'D' }
