@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page with Role-based Redirect</title>
+    <title>Login Page with Notices</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .login-container {
@@ -23,7 +23,7 @@
         }
         .toggle-button {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             cursor: pointer;
             margin-bottom: 10px;
         }
@@ -32,12 +32,19 @@
 <body>
     <div class="container">
         <div class="login-container">
-            <div class="toggle-button" onclick="toggleNotice()">
-                <span>공지사항</span>
+            <div class="toggle-button" onclick="toggleNotice('notice1')">
+                <span>직전 보충 수업에 대한 일정</span>
                 <span>&#9660;</span>
             </div>
-            <div class="notice" id="notice">
-                여기에 공지사항 내용을 적으세요.
+            <div class="notice" id="notice1">
+                직전 보충 수업은 다음 주 월요일 오후 2시에 진행됩니다.
+            </div>
+            <div class="toggle-button" onclick="toggleNotice('notice2')">
+                <span>특강 수업 공지</span>
+                <span>&#9660;</span>
+            </div>
+            <div class="notice" id="notice2">
+                이번 주 토요일 오전 10시부터 12시까지 특강 수업이 있습니다.
             </div>
             <h2 class="text-center">복습 동영상</h2>
             <form id="loginForm">
@@ -49,14 +56,14 @@
                     <label for="password">비밀번호</label>
                     <input type="password" class="form-control" id="password" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">들어가기</button>
+                <button type="submit" class="btn btn-primary btn-block">Enter</button>
             </form>
         </div>
     </div>
 
     <script>
-        function toggleNotice() {
-            const notice = document.getElementById('notice');
+        function toggleNotice(noticeId) {
+            const notice = document.getElementById(noticeId);
             if (notice.style.display === 'none' || notice.style.display === '') {
                 notice.style.display = 'block';
             } else {
